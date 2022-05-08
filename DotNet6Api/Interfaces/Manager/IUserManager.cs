@@ -3,8 +3,8 @@ using EF.Core.Repository.Interface.Manager;
 
 namespace DotNet6Api.Interfaces.Manager
 {
-    public interface IPostManager : ICommonManager<Post>
+    public interface IUserManager : ICommonManager<User>
     {
-        Post GetById(int id);
+        User GetById(int id);
     }
 }

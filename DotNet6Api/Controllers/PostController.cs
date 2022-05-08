@@ -29,11 +29,26 @@ namespace DotNet6Api.Controllers
         {
             try
             {
-                var posts = _postManager.GetAll().ToList();
+                var posts = _postManager.GetAll().OrderBy(c=>c.CreateDate).ToList();
                 return Ok(posts);
             }
             //var posts= _dbContext.Posts.ToList();
             catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult GetAllDesc()
+        {
+            try
+            {
+                var posts = _postManager.GetAll().OrderByDescending(c => c.CreateDate).ToList();
+                return Ok(posts);
+            }
+            //var posts= _dbContext.Posts.ToList();
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }

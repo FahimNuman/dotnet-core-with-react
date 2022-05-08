@@ -12,5 +12,6 @@ namespace DotNet6Api.Context
         }
 
         public DbSet<Post> Posts { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
